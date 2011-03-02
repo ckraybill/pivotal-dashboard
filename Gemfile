@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 
 gem 'rails', '~>3.0.5'
-gem 'pivotal-tracker', '0.2.2'
+gem 'pivotal-tracker', '~>0.3.1'
 gem 'feedzirra', '0.0.24'
-gem 'haml', '3.0.23'
+gem 'haml', '~>3.0.25'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
