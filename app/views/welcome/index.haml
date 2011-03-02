@@ -1,0 +1,17 @@
+%h1{:class => build_state(@build_feed)}
+  = build_status(@build_feed)
+.stories
+  - @stories.each do |state, stories|
+    %h2= state
+    - stories.each do |story|
+      .story{:class => story_class(story)}
+        =image_tag(icon_url(story))
+        =story.name
+        %div{:class => 'owner'}= story.owned_by
+.activities
+  %h2 Recently Heard...
+  - @activity_feed.entries.each do |item|
+    .activity
+      = distance_of_time_in_words(Time.now,item.updated).titleize
+      ago
+      = item.content

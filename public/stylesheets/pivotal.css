@@ -1,0 +1,11 @@
+h1 { padding: 0.2em 0.3em;}
+h1.good { background-color:green; color: white;}
+h1.bad { background-color:red; color: white;}
+h2 { clear:left; }
+div.story { border:1px solid black; width:300px; padding:0.4em 1em; float:left; margin:0 0.4em 0.4em 0; height:4em; }
+div.done { background-color: #eafff4; }
+div.started { background-color: #ffffdd; }
+div.story div.owner { clear:left; text-align:right; display:block; padding-top: 0.2em; font-family:Monospace;}
+div.stories { float: left; width: 700px; }
+div.activities { float: left; width: 250px; }
+div.activity { margin: 0 0 1em 0;}
