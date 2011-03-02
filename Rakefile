@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Pivotal::Application.load_tasks
+PivotalDashboard::Application.load_tasks
