@@ -30,4 +30,5 @@ gem 'haml', '~>3.0.25'
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'mysql'
 end

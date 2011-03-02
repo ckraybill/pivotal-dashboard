@@ -54,6 +54,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    mysql (2.8.1)
     nokogiri (1.4.3.1)
     pivotal-tracker (0.3.1)
       builder
@@ -108,6 +109,7 @@ PLATFORMS
 DEPENDENCIES
   feedzirra (= 0.0.24)
   haml (~> 3.0.25)
+  mysql
   pivotal-tracker (~> 0.3.1)
   rails (~> 3.0.5)
   rspec
