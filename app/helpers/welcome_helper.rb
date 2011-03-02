@@ -9,9 +9,9 @@ module WelcomeHelper
   
   def icon_url(story)
     case story.story_type
-      when 'chore' then 'https://www.pivotaltracker.com/images/v3/icons/stories_view/chore_icon.png'
-      when 'feature' then 'https://www.pivotaltracker.com/images/v3/icons/stories_view/feature_icon.png'
-      when 'bug' then 'https://www.pivotaltracker.com/images/v3/icons/stories_view/bug_icon.png'
+      when 'chore' then 'https://cdn1-pivotaltracker.pantherssl.com/images/v6/application/stories_view/icons/chore.png'
+      when 'feature' then 'https://cdn1-pivotaltracker.pantherssl.com/images/v6/application/stories_view/icons/feature.png'
+      when 'bug' then 'https://cdn1-pivotaltracker.pantherssl.com/images/v6/application/stories_view/icons/bug.png'
     end
   end
   
