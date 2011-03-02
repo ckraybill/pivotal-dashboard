@@ -5,13 +5,17 @@
     %h2= state
     - stories.each do |story|
       .story{:class => story_class(story)}
-        =image_tag(icon_url(story))
-        =story.name
-        %div{:class => 'owner'}= story.owned_by
-.activities
-  %h2 Recently Heard...
-  - @activity_feed.entries.each do |item|
-    .activity
-      = distance_of_time_in_words(Time.now,item.updated).titleize
-      ago
-      = item.content
+        %p.header
+          =image_tag(icon_url(story))
+          %a{:href=>story.url,:target=>'_blank'}
+            =story.id
+          %span
+            =story.estimate
+            points
+        %p.body
+          =story.name
+        %p.footer
+          Core / #{story.labels ? story.labels.split(',').first : ''}
+          %span.owner
+            =story.owned_by
+=render(:partial=>'chatter')
