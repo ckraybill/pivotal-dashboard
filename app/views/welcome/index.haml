@@ -16,6 +16,7 @@
         - @stories['delivered'].each do |story|
           =render(:partial=>'story',:locals=>{:story=>story})
       %td
-        %h2 Ready to Release
-        - @stories['accepted'].each do |story|
-          =render(:partial=>'story',:locals=>{:story=>story})
+        %h2 Ready for Release
+        - PIVOTAL_PROJECTS.each do |project_id|
+          -Story.pending_release(project_id).each do |story|
+            =render(:partial=>'story',:locals=>{:story=>story})

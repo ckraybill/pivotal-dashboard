@@ -1,1 +1,2 @@
 PivotalTracker::Client.token = '7256cda93830cc70065ae5428ea690b8'
+PIVOTAL_PROJECTS = [59007,117309]
