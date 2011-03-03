@@ -3,6 +3,8 @@ class Story < ActiveRecord::Base
                   :story_type, :estimate, :current_state, :requested_by,
                   :owned_by, :labels
 
+  belongs_to :project
+
   scope :in_progress, where(:current_state => ['unstarted','started','delivered'])
 
   scope :accepted_after, lambda { |project_id,date|

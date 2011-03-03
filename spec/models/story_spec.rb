@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe Story do
+  it 'should belong to a project' do
+    subject.should respond_to(:project)
+  end
   it 'should return the first label if one is present' do
     subject.labels = 'a,b'
     subject.first_label.should == 'a'

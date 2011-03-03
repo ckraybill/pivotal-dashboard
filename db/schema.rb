@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110302224844) do
+ActiveRecord::Schema.define(:version => 20110303172848) do
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.integer  "current_velocity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "stories", :force => true do |t|
     t.string   "url"
