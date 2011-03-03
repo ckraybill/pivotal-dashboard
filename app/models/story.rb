@@ -18,6 +18,19 @@ class Story < ActiveRecord::Base
     where(:story_type => 'release')
   }
 
+  def self.create_or_update_all_from_pivotal(pivotal_project)
+    pivotal_project.stories.all(:modified_since => (Date.today-30).to_s).each do |pivotal_story|
+      self.create_or_update(pivotal_story)
+    end
+  end
+
+  def self.create_or_update(tracker_story)
+    story = Story.find_or_initialize_by_id(tracker_story.id)
+    story.attributes = tracker_story.instance_values
+    story.save
+    story
+  end
+
   def first_label
     labels? ? labels.split(',').first : 'none'
   end

@@ -6,12 +6,9 @@ class WelcomeController < ApplicationController
 
   def rebuild
     PIVOTAL_PROJECTS.each do |project_id|
-      project = PivotalTracker::Project.find(project_id)
-      project.stories.all(:modified_since => (Date.today-30).to_s).each do |story|
-        persistent_story = Story.find_or_initialize_by_id(story.id)
-        persistent_story.attributes = story.instance_values
-        persistent_story.save
-      end
+      pivotal_project = PivotalTracker::Project.find(project_id)
+      Project.create_or_update(pivotal_project)
+      Story.create_or_update_all_from_pivotal(pivotal_project)
     end
     redirect_to root_url
   end
