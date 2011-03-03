@@ -1,14 +1,15 @@
-.story{:class => story_class(story)}
-  %p.header
-    =image_tag(icon_url(story))
-    %a{:href=>story.url,:target=>'_blank'}
-      =story.id
-    %span
-      =story.estimate
-      points
-  %p.body
-    =story.name
-  %p.footer
-    Core / #{story.labels ? story.labels.split(',').first : ''}
-    %span.owner
-      =story.owned_by
+- if story
+  .story{:class => story_class(story)}
+    %p.header
+      =image_tag(icon_url(story))
+      %a{:href=>story.url,:target=>'_blank'}
+        =story.id
+      %span
+        =story.estimate
+        points
+    %p.body
+      =story.name
+    %p.footer
+      #{story.project_id} / #{story.first_label}
+      %span.owner
+        =story.owned_by
