@@ -1,21 +1,21 @@
 %h1{:class => build_state(@build_feed)}
   = build_status(@build_feed)
 .stories
-  - @stories.each do |state, stories|
-    %h2= state
-    - stories.each do |story|
-      .story{:class => story_class(story)}
-        %p.header
-          =image_tag(icon_url(story))
-          %a{:href=>story.url,:target=>'_blank'}
-            =story.id
-          %span
-            =story.estimate
-            points
-        %p.body
-          =story.name
-        %p.footer
-          Core / #{story.labels ? story.labels.split(',').first : ''}
-          %span.owner
-            =story.owned_by
-=render(:partial=>'chatter')
+  %table
+    %tr
+      %td
+        %h2 Committed
+        - @stories['unstarted'].each do |story|
+          =render(:partial=>'story',:locals=>{:story=>story})
+      %td
+        %h2 In Progress
+        - @stories['started'].each do |story|
+          =render(:partial=>'story',:locals=>{:story=>story})
+      %td
+        %h2 Pending Acceptance
+        - @stories['delivered'].each do |story|
+          =render(:partial=>'story',:locals=>{:story=>story})
+      %td
+        %h2 Ready to Release
+        - @stories['accepted'].each do |story|
+          =render(:partial=>'story',:locals=>{:story=>story})

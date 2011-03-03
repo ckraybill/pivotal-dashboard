@@ -1,0 +1,7 @@
+.activities
+  %h2 Recently Heard...
+  - @activity_feed.entries.each do |item|
+    .activity
+      = distance_of_time_in_words(Time.now,item.updated).titleize
+      ago
+      = item.content

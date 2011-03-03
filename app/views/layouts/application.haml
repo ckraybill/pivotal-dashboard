@@ -2,6 +2,8 @@
 %html
   %head
     %title Status
+    %link{:rel => 'stylesheet', :href => "/stylesheets/less.css"}
     %link{:rel => 'stylesheet', :href => "/stylesheets/pivotal.css"}
   %body
-    = yield
+    .content
+      = yield
