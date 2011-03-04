@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @stories = Story.in_progress.group_by(&:current_state)
+    @stories = Story.current.includes(:project).group_by(&:current_state)
   end
 
   def chatter

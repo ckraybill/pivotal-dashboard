@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110303172848) do
+ActiveRecord::Schema.define(:version => 20110304193912) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(:version => 20110303172848) do
     t.string   "labels"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "current",       :default => false
   end
+
+  add_index "stories", ["current"], :name => "index_stories_on_current"
 
 end

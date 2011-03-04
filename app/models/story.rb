@@ -5,7 +5,10 @@ class Story < ActiveRecord::Base
 
   belongs_to :project
 
-  scope :in_progress, where("current_state in ('unstarted','started','delivered') and story_type != 'release'")
+  scope :active_stories, where("current_state in ('unstarted','started','delivered') and story_type != 'release'")
+
+  scope :current, where("current = true and story_type != 'release'")
+
   scope :accepted_after, lambda { |project_id,date|
     where('accepted_at > ?',date).
     where('project_id = ?',project_id)
@@ -30,12 +33,17 @@ class Story < ActiveRecord::Base
     story
   end
 
+  def self.set_current(project_id,stories)
+    Story.update_all('current=false',{:project_id=>project_id})
+    Story.update_all('current=true',{:project_id=>project_id,:id=>[stories.map(&:id)]})
+  end
+
   def first_label
     labels? ? labels.split(',').first : 'none'
   end
 
   def self.pending_release(project_id)
-    last_release_date = self.accepted_releases(project_id).select(:accepted_at).last.accepted_at
+    last_release_date = self.accepted_releases(project_id).select(:accepted_at).last.accepted_at rescue nil
     self.accepted_after(project_id,last_release_date)
   end
 end
