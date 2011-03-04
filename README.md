@@ -55,8 +55,8 @@ I'm starting to become a fan of webrick (again).
 
     rails server     # or rails s, for short
 
-First time you should point your browser at the rebuild URL, so that Story(ies) get populated in your local DB:
+To get started you'll want to grab a snapshot of stories and projects from Pivotal Tracker.
 
-    http://localhost:3000/welcome/rebuild
+    rake pivotal:update
 
 Enjoy.
