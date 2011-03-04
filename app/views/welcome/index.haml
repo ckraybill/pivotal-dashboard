@@ -1,5 +1,5 @@
 .stories
-  %table
+  %table.kanban
     %tr
       %td
         %h2 Upcoming
@@ -13,7 +13,7 @@
         %h2 Pending Acceptance
         - @stories['delivered'].each do |story|
           =render(:partial=>'story',:locals=>{:story=>story})
-      %td
+      %td.last
         %h2 Ready for Release
         - PIVOTAL_PROJECTS.each do |project_id|
           -Story.pending_release(project_id).each do |story|
