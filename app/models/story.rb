@@ -5,8 +5,7 @@ class Story < ActiveRecord::Base
 
   belongs_to :project
 
-  scope :in_progress, where(:current_state => ['unstarted','started','delivered'])
-
+  scope :in_progress, where("current_state in ('unstarted','started','delivered') and story_type != 'release'")
   scope :accepted_after, lambda { |project_id,date|
     where('accepted_at > ?',date).
     where('project_id = ?',project_id)
