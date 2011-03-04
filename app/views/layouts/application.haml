@@ -1,9 +1,13 @@
 !!! html
 %html
   %head
-    %title Status
-    %link{:rel => 'stylesheet', :href => "/stylesheets/less.css"}
-    %link{:rel => 'stylesheet', :href => "/stylesheets/pivotal.css"}
-  %body
+    %meta{:charset=>'utf-8'}
+    %title Pivotal Dashboard
+    %link{:rel=>'stylesheet',:href=>'/stylesheets/pivotal.css'}
+    %meta{:name=>'viewport',:content=>'width=device-width, initial-scale=1'}
+  %body{:lang=>'en'}
+    .header
+      %h1{:class => build_state(@build_feed)}
+        =build_status(@build_feed)
     .content
-      = yield
+      =yield

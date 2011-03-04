@@ -1,7 +1,6 @@
 class WelcomeController < ApplicationController
   def index
     @stories = Story.in_progress.group_by(&:current_state)
-    @build_feed = Feedzirra::Feed.fetch_and_parse("http://g5search:g5rocks@sancho.g5search.com/projects/core-development.rss")
   end
 
   def rebuild
