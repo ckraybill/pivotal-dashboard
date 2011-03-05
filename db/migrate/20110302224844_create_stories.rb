@@ -4,7 +4,7 @@ class CreateStories < ActiveRecord::Migration
       t.string :url
       t.integer :project_id
       t.string :name
-      t.string :description
+      t.text :description
       t.timestamp :accepted_at
       t.string :story_type
       t.integer :estimate
