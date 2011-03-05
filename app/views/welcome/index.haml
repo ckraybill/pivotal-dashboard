@@ -3,18 +3,15 @@
     %tr
       %td
         %h2 Upcoming
-        - @stories['unstarted'].each do |story|
-          =render(:partial=>'story',:locals=>{:story=>story})
+        =render :partial => 'story', :collection => @stories['unstarted']
       %td
         %h2 In Progress
-        - @stories['started'].each do |story|
-          =render(:partial=>'story',:locals=>{:story=>story})
+        =render :partial => 'story', :collection => @stories['started']
       %td
         %h2 Pending Acceptance
-        - @stories['delivered'].each do |story|
-          =render(:partial=>'story',:locals=>{:story=>story})
+        =render :partial => 'story', :collection => @stories['delivered']
       %td.last
         %h2 Ready for Release
+        =render :partial => 'story', :collection => @pending
         - PIVOTAL_PROJECTS.each do |project_id|
-          -Story.pending_release(project_id).each do |story|
-            =render(:partial=>'story',:locals=>{:story=>story})
+          =render :partial => 'story', :collection => Story.pending_release(project_id)
