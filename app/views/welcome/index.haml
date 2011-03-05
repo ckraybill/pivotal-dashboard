@@ -3,13 +3,22 @@
     %tr
       %td
         %h2 Upcoming
-        =render :partial => 'story', :collection => @stories['unstarted']
+        - if @stories['unstarted']
+          =render :partial => 'story', :collection => @stories['unstarted']
+        - else
+          No more stories in current iteration.
       %td
         %h2 In Progress
-        =render :partial => 'story', :collection => @stories['started']
+        - if @stories['started']
+          =render :partial => 'story', :collection => @stories['started']
+        - else
+          All stories in current iteration have been delivered.
       %td
         %h2 Pending Acceptance
-        =render :partial => 'story', :collection => @stories['delivered']
+        - if @stories['delivered']
+          =render :partial => 'story', :collection => @stories['delivered']
+        - else
+          All stories in current iteration have been accepted.
       %td.last
         %h2 Ready for Release
         =render :partial => 'story', :collection => @pending

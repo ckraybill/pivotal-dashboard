@@ -31,5 +31,5 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rcov'
-  gem 'mysql'
+  gem 'sqlite3-ruby'
 end

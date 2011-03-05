@@ -14,26 +14,14 @@ Now go ahead and grab the required gems:
 
 Setup
 -----
-This project requires a config/database.yml. I assume MySQL is installed. Here's a sample config/database.yml to get you started:
+This project requires a config/database.yml. You can copy the example provided:
 
-		development:
-		  adapter: mysql
-		  username: root
-		  password:
-		  database: pivotal_dashboard_development
+    cp config/database.yml.example config/database.yml
 
-		test:
-		  adapter: mysql
-		  username: root
-		  password:
-		  database: pivotal_dashboard_test
-
-TODO: create a config/database.yml.example
-
-After the yml file is created:
+After the yml file is created you can setup the schemas
 
     rake db:setup
-    rake db:prepare
+    rake db:migrate    # just to be safe
 
 Testing
 -------

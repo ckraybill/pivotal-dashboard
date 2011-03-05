@@ -7,7 +7,7 @@ class Story < ActiveRecord::Base
 
   scope :active_stories, where("current_state in ('unstarted','started','delivered') and story_type != 'release'")
 
-  scope :current, where("current = true and story_type != 'release'")
+  scope :current, where("current = 1 and story_type != 'release'")
 
   scope :accepted_after, lambda { |project_id,date|
     where('accepted_at > ?',date).
@@ -34,8 +34,8 @@ class Story < ActiveRecord::Base
   end
 
   def self.set_current(project_id,stories)
-    Story.update_all('current=false',{:project_id=>project_id})
-    Story.update_all('current=true',{:project_id=>project_id,:id=>[stories.map(&:id)]})
+    Story.update_all('current=0',{:project_id=>project_id})
+    Story.update_all('current=1',{:project_id=>project_id,:id=>[stories.map(&:id)]})
   end
 
   def first_label
