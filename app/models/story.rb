@@ -7,7 +7,7 @@ class Story < ActiveRecord::Base
 
   scope :active_stories, where("current_state in ('unstarted','started','delivered') and story_type != 'release'")
 
-  scope :current, where("current = 1 and story_type != 'release'")
+  scope :current, where(:current=>true).where("story_type!='release'")
 
   scope :accepted_after, lambda { |project_id,date|
     where('accepted_at > ?',date).
