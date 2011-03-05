@@ -34,8 +34,8 @@ class Story < ActiveRecord::Base
   end
 
   def self.set_current(project_id,stories)
-    Story.update_all('current=0',{:project_id=>project_id})
-    Story.update_all('current=1',{:project_id=>project_id,:id=>[stories.map(&:id)]})
+    Story.update_all({:current=>false},{:project_id=>project_id})
+    Story.update_all({:current=>true},{:project_id=>project_id,:id=>[stories.map(&:id)]})
   end
 
   def first_label
