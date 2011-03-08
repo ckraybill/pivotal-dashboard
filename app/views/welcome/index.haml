@@ -9,8 +9,8 @@
           No more stories in current iteration.
       %td
         %h2 In Progress
-        - if @stories['started']
-          =render :partial => 'story', :collection => @stories['started']
+        - if @stories['started'] || @stories['finished']
+          =render :partial => 'story', :collection => @stories['started'].to_a|@stories['finished'].to_a
         - else
           All stories in current iteration have been delivered.
       %td

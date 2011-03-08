@@ -5,7 +5,7 @@ class Story < ActiveRecord::Base
 
   belongs_to :project
 
-  scope :active_stories, where("current_state in ('unstarted','started','delivered') and story_type != 'release'")
+  scope :active_stories, where("current_state in ('unstarted','started','finished','delivered') and story_type != 'release'")
 
   scope :current, where(:current=>true).where("story_type!='release'")
 

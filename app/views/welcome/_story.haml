@@ -1,6 +1,6 @@
 - if story
   .story{:class => story_class(story)}
-    %p.header
+    %p.header{:class => story.current_state}
       =image_tag(icon_url(story))
       %a{:href=>story.url,:target=>'_blank'}
         =story.id
