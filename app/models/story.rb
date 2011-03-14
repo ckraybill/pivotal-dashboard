@@ -21,7 +21,10 @@ class Story < ActiveRecord::Base
   }
 
   def self.create_or_update_all_from_pivotal(pivotal_project)
-    pivotal_project.stories.all(:modified_since => (Date.today-30).to_s).each do |pivotal_story|
+    pivotal_project.stories.all(
+        :modified_since => (Date.today-30).to_s,
+        :includedone => 'true'
+      ).each do |pivotal_story|
       self.create_or_update(pivotal_story)
     end
   end
@@ -43,7 +46,8 @@ class Story < ActiveRecord::Base
   end
 
   def self.pending_release(project_id)
-    last_release_date = self.accepted_releases(project_id).select(:accepted_at).last.accepted_at rescue nil
+    our_scope = self.accepted_releases(project_id)
+    last_release_date = our_scope.select(:accepted_at).order(:accepted_at).last.accepted_at rescue nil
     self.accepted_after(project_id,last_release_date)
   end
 end

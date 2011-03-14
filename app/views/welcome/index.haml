@@ -21,6 +21,5 @@
           All stories in current iteration have been accepted.
       %td.last
         %h2 Ready for Release
-        =render :partial => 'story', :collection => @pending
         - PIVOTAL_PROJECTS.each do |project_id|
           =render :partial => 'story', :collection => Story.pending_release(project_id)
