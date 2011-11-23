@@ -8,7 +8,7 @@ module WelcomeHelper
   end
   
   def icon_url(story)
-    base_url = 'https://cdn1-pivotaltracker.pantherssl.com/images/v6/application/stories_view/icons'
+    base_url = 'https://cdn1-pivotaltracker.pantherssl.com/images/v7/application/stories_view/icons'
     icon = case story.story_type
       when 'chore' then 'chore.png'
       when 'feature' then 'feature.png'
