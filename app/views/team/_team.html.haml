@@ -1,0 +1,14 @@
+%h2
+  = team.name 
+  (
+  = team.owned_stories.active_stories.count
+  \/
+  = team.owned_stories.active_stories.sum('stories.estimate')
+  |
+  = team.owned_stories.count
+  \/
+  = team.owned_stories.sum('stories.estimate')
+  )
+.clear
+= render :partial => 'member', :collection => team.members
+%br

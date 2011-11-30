@@ -112,3 +112,25 @@ span.owner {
 }
 div.activities { clear:both; }
 div.activity { margin: 0 0 1em 0;}
+
+div.navigation ul {
+    margin-bottom: 5px;
+    list-style: none;
+}
+
+div.navigation ul li.first {
+    border-left: 0px;
+}
+
+div.navigation ul li {
+    overflow: hidden;
+    display: inline;
+    vertical-align: bottom;
+    padding-left: 5px;
+    padding-right: 3px;
+    border-left: 1px black solid;
+}
+
+.clear {
+    clear: both;
+}

@@ -5,11 +5,14 @@
       %a{:href=>story.url,:target=>'_blank'}
         =story.id
       %span
-        =story.estimate
-        points
+        -if story.estimate == -1
+          Not Estimated
+        -else
+          ="#{story.estimate} points" unless story.estimate.blank?
     %p.body
       =story.name
     %p.footer
       #{story.project.name} / #{story.first_label}
       %span.owner
         =story.owned_by
+      =story.current_state

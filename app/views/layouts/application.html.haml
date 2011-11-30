@@ -5,9 +5,18 @@
     %title Pivotal Dashboard
     %link{:rel=>'stylesheet',:href=>'/stylesheets/pivotal.css'}
     %meta{:name=>'viewport',:content=>'width=device-width, initial-scale=1'}
+    =javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js'
   %body{:lang=>'en'}
     .header
       %h1{:class => build_state(@build_feed)}
         =build_status(@build_feed)
+    .navigation
+      %ul
+        %li.first
+          =link_to_unless_current "Story Board", root_path
+        %li
+          =link_to_unless_current "Team Board", team_path
+        %li
+          =link_to_unless_current "Admin", admin_path
     .content
       =yield

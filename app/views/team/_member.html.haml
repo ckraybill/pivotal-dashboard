@@ -1,0 +1,12 @@
+%h3
+  = link_to member.name, person_path(member)
+  (
+  = member.owned_stories.active_stories.count
+  \/
+  = member.owned_stories.active_stories.sum('stories.estimate')
+  |
+  = member.owned_stories.count
+  \/
+  = member.owned_stories.sum('stories.estimate')
+  )
+.clear
