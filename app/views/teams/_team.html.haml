@@ -1,5 +1,5 @@
 %h2
-  = team.name 
+  = link_to team.name, teams_path(team)
   (
   = team.owned_stories.active_stories.count
   \/

@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe TeamController do
+describe TeamsController do
 
 end

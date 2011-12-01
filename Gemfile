@@ -4,7 +4,6 @@ gem 'rails', '~>3.1.3'
 gem 'pivotal-tracker', '~>0.3.1'
 gem 'feedzirra', '0.0.24'
 gem 'haml', '~>3.0.25'
-gem 'pg'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -33,4 +32,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rcov'
   gem 'sqlite3-ruby'
+end
+
+group :production do
+  gem 'pg'
 end

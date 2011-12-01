@@ -15,4 +15,6 @@
       #{story.project.name} / #{story.first_label}
       %span.owner
         =story.owned_by
-      =story.current_state
+      %br
+      %span.status
+        =story.current_state

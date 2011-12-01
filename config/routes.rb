@@ -1,7 +1,7 @@
 PivotalDashboard::Application.routes.draw do
   root :to => "welcome#index"
 
-  match 'team' => 'team#index'
+  resources :teams
 
   resources :people
   
