@@ -45,9 +45,24 @@ class Story < ActiveRecord::Base
     labels? ? labels.split(',').first : 'none'
   end
 
+  def short_name
+    shorten(name,60)
+  end
+
   def self.pending_release(project_id)
     our_scope = self.accepted_releases(project_id)
     last_release_date = our_scope.select(:accepted_at).order(:accepted_at).last.accepted_at rescue nil
     self.accepted_after(project_id,last_release_date)
+  end
+
+  def shorten (string, count = 30)
+    if string.length >= count 
+      shortened = string[0, count]
+      splitted = shortened.split(/\s/)
+      words = splitted.length
+      splitted[0, words-1].join(" ") + ' ...'
+    else 
+      string
+    end
   end
 end

@@ -13,4 +13,6 @@ class Person < ActiveRecord::Base
            :primary_key => 'pivotal_name',
            :foreign_key => 'requested_by'
 
+  default_scope :order => 'name'
+
 end

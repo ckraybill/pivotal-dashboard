@@ -1,11 +1,1 @@
-%h2
-  =@person.name
-%h3
-  Member of
-  .navigation
-    %ul
-      =render :partial => 'team', :collection => @person.teams
-= render :partial => 'welcome/story', :collection => @person.owned_stories.active_stories
-.clear
-%hr
-= render :partial => 'welcome/story', :collection => @person.owned_stories - @person.owned_stories.active_stories
+=render :partial => 'person', :locals => {:person => @person}

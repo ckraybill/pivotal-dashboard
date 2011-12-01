@@ -1,10 +1,23 @@
 %h2
-  =person.name
+  =link_to person.name, "http://hub.g5platform.com/people/#{person.name.downcase.gsub(' ','.')}", :target => '_blank'
 %h3
-  Member of
-  .navigation
-    %ul
-      =render :partial => 'team', :collection => person.teams
+  %p
+    Pivotal Name:
+    %span.data
+      =person.pivotal_name
+  %p
+    Twitter Handle:
+    %span.data
+      =link_to person.twitter_handle, "http://twitter.com/#{person.twitter_handle}", :target => '_blank' unless person.twitter_handle.blank?
+  %p
+    Github Handle:
+    %span
+      =link_to person.github_handle, "http://github.com/#{person.github_handle}", :target => '_blank' unless person.github_handle.blank?
+  %p
+    Member of
+    .navigation
+      %ul
+        =render :partial => 'team', :collection => person.teams
 = render :partial => 'welcome/story', :collection => person.owned_stories.active_stories
 .clear
 %hr

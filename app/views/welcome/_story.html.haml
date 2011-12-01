@@ -10,7 +10,7 @@
         -else
           ="#{story.estimate} points" unless story.estimate.blank?
     %p.body
-      =story.name
+      =story.short_name
     %p.footer
       #{story.project.name} / #{story.first_label}
       %span.owner
