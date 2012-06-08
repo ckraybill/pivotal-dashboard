@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_filter :load_build_feed
   private
     def load_build_feed
-      @build_feed = Feedzirra::Feed.fetch_and_parse("http://g5search:g5rocks@sancho.g5search.com/projects/core-development.rss")
+      #FIXME: Move the feed url to the Project and set a CI type
+      @build_feed = nil
     end
 end

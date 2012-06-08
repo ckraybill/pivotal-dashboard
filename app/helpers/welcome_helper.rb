@@ -1,10 +1,10 @@
 module WelcomeHelper
   def build_state(feed)
-    build_successful?(feed) ? 'good' : 'bad'
+    (feed && build_successful?(feed)) ? 'good' : 'bad'
   end
   
   def build_status(feed)
-    build_successful?(feed) ? 'Current build is good' : 'Houston, we have a problem'
+    (feed && build_successful?(feed)) ? 'Current build is good' : 'Houston, we have a problem'
   end
   
   def icon_url(story)
@@ -28,6 +28,6 @@ module WelcomeHelper
   
   private
     def build_successful?(feed)
-      feed.entries.first.title.include?('success')
+      feed && feed.entries.first.title.include?('success')
     end
 end
