@@ -1,4 +1,4 @@
-PivotalTracker::Client.token = ENV['tracker_token']
+PivotalTracker::Client.token = ENV['PIVOTAL_TOKEN']
 CORE = 59007
 DP   = 117309
 HD   = 157099
