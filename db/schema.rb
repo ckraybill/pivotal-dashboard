@@ -20,22 +20,22 @@ ActiveRecord::Schema.define(:version => 20111128234510) do
     t.string   "pivotal_name"
     t.string   "work_email"
     t.string   "personal_email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.integer  "current_velocity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "stories", :force => true do |t|
     t.string   "url"
     t.integer  "project_id"
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.datetime "accepted_at"
     t.string   "story_type"
     t.integer  "estimate"
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(:version => 20111128234510) do
     t.string   "requested_by"
     t.string   "owned_by"
     t.string   "labels"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.boolean  "current",       :default => false
   end
 
@@ -53,14 +53,14 @@ ActiveRecord::Schema.define(:version => 20111128234510) do
   create_table "team_assignments", :force => true do |t|
     t.integer  "team_id"
     t.integer  "person_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "teams", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

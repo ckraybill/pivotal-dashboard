@@ -5,7 +5,7 @@ gem 'rails', '~> 3.2.5'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
 gem 'haml', '~> 3.1.6'
 gem 'jquery-rails'
 gem 'pivotal-tracker', '~> 0.5.4'
