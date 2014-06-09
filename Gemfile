@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
+ruby "1.9.3"
 
-gem 'rails', '~> 3.2.12'
+gem 'rails', '~> 3.2.18'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -8,7 +9,7 @@ gem 'rails', '~> 3.2.12'
 gem 'pg'
 gem 'haml', '~> 3.1.6'
 gem 'jquery-rails'
-gem 'pivotal-tracker', '~> 0.5.4'
+gem 'pivotal-tracker', '~> 0.5.12'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -17,7 +18,7 @@ gem 'pivotal-tracker', '~> 0.5.4'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
